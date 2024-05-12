@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  mi-programa-c:
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./programa.c:/usr/src/programa.c
+      
+    command: ./programa
