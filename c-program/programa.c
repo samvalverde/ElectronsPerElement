@@ -64,14 +64,6 @@ void calcVariables(Element elements[], Variables *variables){
     }
     variables->A = MAX_ELEMENTS;
     variables->C = variables->B;
-    //variables->E = (variables->A * elements[MAX_ELEMENTS-1].numeroAtomico) + (variables->B * elements[MAX_ELEMENTS-1].numeroNeutrones);
-    //variables->F = (variables->C * elements[MAX_ELEMENTS-1].numeroAtomico) + (variables->D * elements[MAX_ELEMENTS-1].numeroNeutrones);
-    //printf("A: %.2f\n", variables.A);
-    //printf("B: %.2f\n", variables.B);
-    //rintf("C: %.2f\n", variables.C);
-    //printf("D: %.2f\n", variables.D);
-    //printf("E: %.2f\n", variables.E);
-    //printf("F: %.2f\n", variables.F);
 }
 
 void solveLinearSystem(Variables *variables, Constants *constants){
@@ -80,26 +72,12 @@ void solveLinearSystem(Variables *variables, Constants *constants){
     float determinantABCD = (variables->A * variables->D) - (variables->B * variables->C);
     constants->constantK = determinantEBFD/determinantABCD;
     constants->constantB = determinantAECF/determinantABCD;
-    //printf("A: %.2f\n", variables->A);
-    //printf("B: %.2f\n", variables->B);
-    //printf("C: %.2f\n", variables->C);
-    //printf("D: %.2f\n", variables->D);
-    //printf("E: %.2f\n", variables->E);
-    //printf("F: %.2f\n", variables->F);
-    //printf("determinantEBFD: %.2f\n", determinantEBFD);
-    //printf("determinantAECF: %.2f\n", determinantAECF);
-    //printf("determinantABCD: %.2f\n", determinantABCD);
-    //printf("b: %.2f\n", constants->constantB);
-    //printf("k: %.2f\n", constants->constantK);
 }
 
 void calcFunction(Element elements[], Variables *variables, Constants *constants){
     calcVariables(elements, variables);
     solveLinearSystem(variables, constants);
     constants->constantA = pow(EULER,constants->constantK);
-    //printf("a: %.2f\n", constants->constantA);
-    //printf("b: %.2f\n", constants->constantB);
-    //printf("k: %.2f\n", constants->constantK);
 }
 
 void elementCalculations(Element *element, Constants *constants){
@@ -108,7 +86,6 @@ void elementCalculations(Element *element, Constants *constants){
     element->redondeoTruncado = (int)element->neutronesObtenidos;
     element->difNObtRC = element->numeroNeutrones - element->redondeoCercano;
     element->difNObtRT = element->numeroNeutrones - element->redondeoTruncado;
-    //printf("numAtom: %d, neutronesObtenidos: %.2f\n", element->numeroAtomico, element->neutronesObtenidos);
 }
 
 void verifyFunction(Element elements[], Constants *constants){
