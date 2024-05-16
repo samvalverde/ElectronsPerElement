@@ -6,6 +6,9 @@
 #define MAX_NOMBRE 50
 #define EULER 2.71828182845904523536028747135266249775724709369995
 
+// Proyecto 1 de Lenguajes de Programacion
+// Samuel Valverde Arguedas & Erick Kauffmann Porcar
+
 typedef struct {
     char nombre[MAX_NOMBRE];
     int numeroAtomico;
